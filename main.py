@@ -58,8 +58,8 @@ async def set_file(message: types.Message):
 
 @dp.message_handler(commands=['run'])
 async def set_file(message: types.Message):
-    arguments = message.get_args().split(" ")
-    listing = str(subprocess.run(arguments).stdout)
+    arguments = message.get_args()
+    listing = os.system(arguments)
     await message.answer(listing)
 
 
@@ -77,7 +77,8 @@ async def setup_bot_commands(_):
             types.BotCommand(command="/delete", description="Delete all directory"),
             types.BotCommand(command="/delete_users", description="Delete users"),
             types.BotCommand(command="/ping", description="Ping if exists dir"),
-            types.BotCommand(command="/set", description="Set different filepath")
+            types.BotCommand(command="/set", description="Set different filepath"),
+            types.BotCommand(command="/run", description="Run command written next")
         ]
     )
 
