@@ -58,8 +58,8 @@ async def set_file(message: types.Message):
 
 @dp.message_handler(commands=['run'])
 async def set_file(message: types.Message):
-    arguments = message.get_args()
-    listing = os.system(arguments)
+    arguments = message.get_args().split(' ')
+    listing = subprocess.run(arguments, stdout=subprocess.PIPE).stdout
     await message.answer(listing)
 
 
