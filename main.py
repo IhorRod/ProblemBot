@@ -1,4 +1,5 @@
 from aiogram import Bot, Dispatcher, executor, types
+from aiogram.types import ParseMode
 import subprocess
 import os
 import shutil
@@ -60,7 +61,7 @@ async def set_file(message: types.Message):
 async def set_file(message: types.Message):
     arguments = message.get_args().split(' ')
     listing = subprocess.run(arguments, stdout=subprocess.PIPE).stdout
-    await message.answer(listing)
+    await message.answer(listing, parse_mode=ParseMode.MARKDOWN)
 
 
 @dp.message_handler()
