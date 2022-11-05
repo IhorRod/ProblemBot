@@ -5,7 +5,7 @@ import shutil
 
 IDS = [489124710]
 API_TOKEN = '5375906406:AAFsIAevnB3Iz1hO4MoAUZ79hRlHvUPoAGo'
-FILE_DIR = "C:/Users/Admin/PycharmProjects"
+FILE_DIR = "/home/arbibot"
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
